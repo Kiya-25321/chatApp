@@ -7,42 +7,66 @@
 	<title>Login Page</title>
 	<style>
 		body {
-		background-color: #f2f2f2;
-		font-family: sans-serif;
+background: #14213D;
+			font-family: sans-serif;
+			display: flex;
+			justify-content: center;
+
 		}
 
 		#container {
-		width: 480px;
-		margin: auto;
+			background: #e5e5e5;
+			width: 28%;
+			height: 100%;
+			padding: 2%;
+			margin-top: 70px;
+			border: 2px solid #FCA311;
+			border-radius: 15px;
 		}
 
 		.input-field {
-		width: 100%;
-		margin-top: 20px;
-		margin-bottom: 20px;
+			width: 100%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+
 		}
 
+		.line {
+			margin: 10px 10px 0px 10px;
+			width: 90%;
+			height: 1px;
+			background: #0000005e;
+
+
+		}
+
+
 		.input-field input {
-		width: 100%;
-		height: 30px;
-		padding: 0 10px;
-		border: 1px solid #ccc;
-		outline: none;
+			margin-top: 5px;
+			width: 100%;
+			height: 30px;
+			border: 1px solid #14213D;
+			outline: none;
 		}
 
 		.input-field button {
-		background-color: #007bff;
-		border: none;
-		color: #fff;
-		padding: 10px 20px;
-		text-align: center;
-		text-decoration: none;
-		cursor: pointer;
-		outline: none;
+			background: #FCA311;
+		width: 100%;
+			border-radius: 100px;
+			border: none;
+			color: #14213D;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			cursor: pointer;
+			outline: none;
+
 		}
 
+
+
 		.error-msg {
-		color: red;
+			color: red;
 		}
 	</style>
 </head>
@@ -57,10 +81,20 @@
       			<label><%= "Password :" %></label>
       			<input type="password" id="password"/>
     		</div>
-    		<div class="input-field">
-      			<button type="submit" id="login-btn" disabled><%= "Login" %></button>
-      			<button type="submit" id="register-button"><%= "Register" %></button>
-    		</div>
+			<div class="input-field">
+				<button type="submit" id="register-btn" disabled>
+					<%= registerBtn %>
+				</button>
+				<div style="display: flex; justify-content: center;">
+					<div class="line"> </div>
+				</div>
+				<div style="display: flex; justify-content: center;">
+					<p>if you have account</p>
+				</div>
+				<button type="button" id="login-btn">
+					<%= loginBtn %>
+				</button>
+			</div>
     		<div class="error-msg" id="error-msg"></div>
   		</form>
 	</div>

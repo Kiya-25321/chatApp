@@ -7,14 +7,17 @@
 	<title>Messaging Page</title>
 	<style>
     body {
-      background-color: #f2f2f2;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      background: #14213D;
+			font-family: sans-serif;
+			display: flex;
+			justify-content: center;
+      flex-direction: column;
     }
 
     #container {
-      background-color: #fff;
+      background-color: #E5E5E5;
+      border: 2px solid #FCA311;
+      border-radius: 5px;
       margin: 20px auto;
       padding: 20px;
       width: 500px;
@@ -42,7 +45,8 @@
 
     #dialogue-output {
       background-color: #f2f2f2;
-      border: 1px solid #ccc;
+      border: 2px solid #FCA311;
+      border-radius: 5px;
       padding: 10px;
       height: 400px;
       overflow-y: scroll;
@@ -67,6 +71,7 @@
     }
 
     .input-field {
+     
       margin-bottom: 20px;
     }
 
@@ -79,15 +84,18 @@
     input[type="text"] {
       width: 100%;
       padding: 5px;
-      border: 1px solid #ccc;
+      border: 1px solid #FCA311;
+      border-radius: 5px;
     }
 
     button {
       padding: 5px 10px;
-      border: none;
-      color: #fff;
-      background-color: #007bff;
+      border: 2px solid #FCA311;
+      border-radius: 5px;
+      color: #ffff;
+      background-color: #14213D;
       cursor: pointer;
+      margin-top: 10px;
       margin-right: 10px;
     }
 
@@ -110,11 +118,13 @@
 
     #send-btn {
       margin-bottom: 10px;
-      background-color: #17a2b8;
+      background-color: #FCA311;
+      color: #14213D;
     }
 
     #logout-btn {
       background-color: #dc3545;
+      border: 2px #dc3545 solid;
     }
 
     .center-buttons {

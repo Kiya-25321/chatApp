@@ -1,149 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Registration Page</title>
 	<style>
 		body {
-		background-color: #f2f2f2;
-		font-family: sans-serif;
+			background: #14213D;
+			font-family: sans-serif;
+			display: flex;
+			justify-content: center;
+
 		}
 
 		#container {
-		width: 480px;
-		margin: auto;
+			background: #e5e5e5;
+			width: 28%;
+			height: 100%;
+			padding: 2%;
+			margin-top: 70px;
+			border: 2px solid #FCA311;
+			border-radius: 15px;
 		}
 
 		.input-field {
-		width: 100%;
-		margin-top: 20px;
-		margin-bottom: 20px;
+			width: 100%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+
 		}
 
+		.line {
+			margin: 10px 10px 0px 10px;
+			width: 90%;
+			height: 1px;
+			background: #0000005e;
+
+
+		}
+
+
 		.input-field input {
-		width: 100%;
-		height: 30px;
-		padding: 0 10px;
-		border: 1px solid #ccc;
-		outline: none;
+			margin-top: 5px;
+			width: 100%;
+			height: 30px;
+			border: 1px solid #14213D;
+			outline: none;
 		}
 
 		.input-field button {
-		background-color: #007bff;
-		border: none;
-		color: #fff;
-		padding: 10px 20px;
-		text-align: center;
-		text-decoration: none;
-		cursor: pointer;
-		outline: none;
+			background: #FCA311;
+			width: 100%;
+			border-radius: 100px;
+			border: none;
+			color: #14213D;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			cursor: pointer;
+			outline: none;
+
 		}
 
 		.error-msg {
-		color: red;
+			color: red;
 		}
 	</style>
 </head>
+
 <body>
 	<div id="container">
-  		<form>
-			<%
-			let mobile = '';
-			let password = '';
-			let repeatPassword = '';
-			let registerBtn = 'Register';
-			let loginBtn = 'Login';
-			let errorMsg = '';
-			%>
-    		<div class="input-field">
-      			<label>Mobile :</label>
-      			<input type="text" id="mobile" value="<%= mobile %>"/>
-    		</div>
-    		<div class="input-field">
-      			<label>Password:</label>
-      			<input type="password" id="password" value="<%= password %>"/>
-    		</div>
-    		<div class="input-field">
-      			<label>Repeat Password:</label>
-      			<input type="password" id="repeat-password" value="<%= repeatPassword %>"/>
-    		</div>
-    		<div class="input-field">
-      			<button type="submit" id="register-btn" disabled><%= registerBtn %></button>
-      			<button type="button" id="login-btn"><%= loginBtn %></button>
-    		</div>
-    		<div class="error-msg" id="error-msg"><%= errorMsg %></div>
-  		</form>
+		<form>
+			<% let mobile='' ; let password='' ; let repeatPassword='' ; let registerBtn='Register' ; let
+				loginBtn='Login' ; let errorMsg='' ; %>
+				<div class="input-field">
+					<label>Mobile :</label>
+					<input type="text" id="mobile" value="<%= mobile %>" />
+				</div>
+				<div class="input-field">
+					<label>Password:</label>
+					<input type="password" id="password" value="<%= password %>" />
+				</div>
+				<div class="input-field">
+					<label>Repeat Password:</label>
+					<input type="password" id="repeat-password" value="<%= repeatPassword %>" />
+				</div>
+					<div class="input-field">
+					<button type="submit" id="register-btn" disabled>
+						<%= registerBtn %>
+					</button>
+					<div style="display: flex; justify-content: center;">
+						<div class="line"> </div>
+					</div>
+					<div style="display: flex; justify-content: center;">
+						<p>if you have account</p>
+					</div>
+					<button type="button" id="login-btn">
+						<%= loginBtn %>
+					</button>
+				</div>
+		</form>
 	</div>
 	<script>
 		let mobile = document.getElementById('mobile');
-        let password = document.getElementById('password');
-        let repeatPassword = document.getElementById('repeat-password');
-        let registerBtn = document.getElementById('register-btn');
-        let loginBtn = document.getElementById('login-btn');
-        let errorMsg = document.getElementById('error-msg');
+		let password = document.getElementById('password');
+		let repeatPassword = document.getElementById('repeat-password');
+		let registerBtn = document.getElementById('register-btn');
+		let loginBtn = document.getElementById('login-btn');
+		let errorMsg = document.getElementById('error-msg');
 
-        mobile.addEventListener('input', function() {
-            if (mobile.value.length == 11) {
-                if (password.value.length > 0 && password.value === repeatPassword.value) {
-					if(password.length >= 8) {
+		mobile.addEventListener('input', function () {
+			if (mobile.value.length == 11) {
+				if (password.value.length > 0 && password.value === repeatPassword.value) {
+					if (password.length >= 8) {
 						registerBtn.disabled = false;
 					}
-                }
-            } else {
-                registerBtn.disabled = true;
-            }
-        });
+				}
+			} else {
+				registerBtn.disabled = true;
+			}
+		});
 
-        password.addEventListener('input', function() {
-            if (password.value.length > 0 && password.value === repeatPassword.value) {
-                if (mobile.value.length == 11) {
-                    registerBtn.disabled = false;
-                }
-            } else {
-                registerBtn.disabled = true;
-            }
-        });
+		password.addEventListener('input', function () {
+			if (password.value.length > 0 && password.value === repeatPassword.value) {
+				if (mobile.value.length == 11) {
+					registerBtn.disabled = false;
+				}
+			} else {
+				registerBtn.disabled = true;
+			}
+		});
 
-        repeatPassword.addEventListener('input', function() {
-            if (password.value === repeatPassword.value) {
-                if (mobile.value.length == 11 && password.value.length > 0) {
-                    registerBtn.disabled = false;
-                }
-            } else {
-                registerBtn.disabled = true;
-            }
-        });
+		repeatPassword.addEventListener('input', function () {
+			if (password.value === repeatPassword.value) {
+				if (mobile.value.length == 11 && password.value.length > 0) {
+					registerBtn.disabled = false;
+				}
+			} else {
+				registerBtn.disabled = true;
+			}
+		});
 
 		let ws = new WebSocket('ws://localhost:8080');
 
-        registerBtn.addEventListener('click', function(e) {
-            e.preventDefault();
+		registerBtn.addEventListener('click', function (e) {
+			e.preventDefault();
 
-            let data = {
-                mobile: mobile.value,
-                password: password.value,
+			let data = {
+				mobile: mobile.value,
+				password: password.value,
 				action: "register"
-            };
+			};
 
 			ws.send(JSON.stringify(data));
 
 			ws.onmessage = (msg) => {
 				let data = JSON.parse(msg.data);
-				switch(data.action) {
+				switch (data.action) {
 
 					case "doneRegister":
-							location.href = `<%= "http://localhost:3000/" %>`;
-					break;
-					
+						location.href = `<%= "http://localhost:3000/" %>`;
+						break;
+
 					case "falseRegister":
 						console.log('user exists');
-					break;
+						break;
 				}
 			}
-        });
-		
-		loginBtn.addEventListener('click', function() {
-            window.location.href = "http://localhost:3000/";
-        });
+		});
+
+		loginBtn.addEventListener('click', function () {
+			window.location.href = "http://localhost:3000/";
+		});
 	</script>
 </body>
+
 </html>
